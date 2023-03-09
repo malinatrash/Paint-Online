@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+.toolbar {
+	height: $toolbar-height;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	width: 100px;
+	box-shadow: 0 4px 5px gray;
+}
