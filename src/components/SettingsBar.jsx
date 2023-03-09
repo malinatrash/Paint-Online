@@ -1,6 +1,7 @@
-import '../styles/toolbar.scss'
+import '../styles/settingbar.scss'
+
 const SettingsBar = () => {
-	return <div className='toolbar'>SettingsBar</div>
+	return <div className='setting-bar'></div>
 }
 
 export default SettingsBar

@@ -1,0 +1,12 @@
+.canvas {
+	height: 100vh;
+	display: flex;
+	justify-self: center;
+	align-items: center;
+}
+
+canvas {
+	border: 2px solid rgb(23, 23, 23);
+	border-radius: 45px;
+	background-color: white;
+}
