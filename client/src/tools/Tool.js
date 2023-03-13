@@ -1,18 +1,22 @@
 export default class Tool {
-	constructor(canvas) {
+	constructor(canvas, socket, id) {
 		this.canvas = canvas
-		this.context = canvas.getContext('2d')
+		this.socket = socket
+		this.id = id
+		this.ctx = canvas.getContext('2d')
 		this.destroyEvents()
 	}
 
-	setFillColor(color) {
-		this.context.fillStyle = color
+	set fillColor(color) {
+		this.ctx.fillStyle = color
 	}
-	setStrokeColor(color) {
-		this.context.strokeStyle = color
+
+	set strokeColor(color) {
+		this.ctx.strokeStyle = color
 	}
-	setLineWidth(width) {
-		this.context.lineWidth = width
+
+	set lineWidth(width) {
+		this.ctx.lineWidth = width
 	}
 
 	destroyEvents() {

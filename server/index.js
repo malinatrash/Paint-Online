@@ -2,12 +2,12 @@ const express = require('express')
 const app = express()
 const WSServer = require('express-ws')(app)
 const aWss = WSServer.getWss()
-// const cors = require('cors')
+const cors = require('cors')
 const PORT = process.env.PORT || 1511
 const fs = require('fs')
-// const path = require('path')
+const path = require('path')
 
-// app.use(cors())
+app.use(cors())
 app.use(express.json())
 
 app.ws('/', (ws, req) => {

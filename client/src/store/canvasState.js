@@ -5,9 +5,19 @@ class CanvasState {
 	undoList = []
 	redoList = []
 	username = ''
+	socket = null
+	session = null
 
 	constructor() {
 		makeAutoObservable(this)
+	}
+
+	setSocket(value) {
+		this.socket = value
+	}
+
+	setSession(value) {
+		this.session = value
 	}
 
 	setUserName(username) {
@@ -27,35 +37,34 @@ class CanvasState {
 	}
 
 	undo() {
-		let ctx = this.canvas.getContext('2d')
+		let context = this.canvas.getContext('2d')
 		if (this.undoList.length > 0) {
 			let dataUrl = this.undoList.pop()
 			this.redoList.push(this.canvas.toDataURL())
 			let img = new Image()
 			img.src = dataUrl
 			img.onload = () => {
-				ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-				ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height)
+				context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+				context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height)
 			}
 		} else {
-			ctx.clearRect(0, 0, this.canvas.width, this.canvas.heigth)
+			context.clearRect(0, 0, this.canvas.width, this.canvas.heigth)
 		}
 	}
 
 	redo() {
-		let ctx = this.canvas.getContext('2d')
+		let context = this.canvas.getContext('2d')
 		if (this.redoList.length > 0) {
 			let dataUrl = this.redoList.pop()
 			this.undoList.push(this.canvas.toDataURL())
 			let img = new Image()
 			img.src = dataUrl
 			img.onload = () => {
-				ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-				ctx.drawImage(img, 0, 0, this.canvas.width, this.canvas.height)
+				context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+				context.drawImage(img, 0, 0, this.canvas.width, this.canvas.height)
 			}
 		}
 	}
-
 }
 
 export default new CanvasState()
