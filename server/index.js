@@ -6,7 +6,7 @@ const cors = require('cors')
 const PORT = process.env.PORT || 1511
 const fs = require('fs')
 const path = require('path')
-
+// почему-то не работает....
 app.use(cors())
 app.use(express.json())
 
