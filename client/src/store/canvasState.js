@@ -51,6 +51,7 @@ class CanvasState {
 			context.clearRect(0, 0, this.canvas.width, this.canvas.heigth)
 		}
 	}
+	
 
 	redo() {
 		let context = this.canvas.getContext('2d')
